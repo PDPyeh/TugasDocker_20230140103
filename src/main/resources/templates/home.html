@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${title}">Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-family: 'Geist Sans', sans-serif;
             background: #f5f7fa;
             min-height: 100vh;
         }
@@ -306,17 +307,17 @@
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-label">Total User</div>
-                    <div class="stat-value" th:text="${users.size()}">0</div>
+                    <div class="stat-value" th:text="${totalUsers}">0</div>
                     <div class="stat-change">✓ Data aktif</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Laki-laki</div>
-                    <div class="stat-value" th:text="${#lists.size(users.stream().filter(u -> u.jenisKelamin == 'Laki-laki').toList())}">0</div>
+                    <div class="stat-value" th:text="${maleCount}">0</div>
                     <div class="stat-change">Berdasarkan jenis kelamin</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Perempuan</div>
-                    <div class="stat-value" th:text="${#lists.size(users.stream().filter(u -> u.jenisKelamin == 'Perempuan').toList())}">0</div>
+                    <div class="stat-value" th:text="${femaleCount}">0</div>
                     <div class="stat-change">Berdasarkan jenis kelamin</div>
                 </div>
             </div>
