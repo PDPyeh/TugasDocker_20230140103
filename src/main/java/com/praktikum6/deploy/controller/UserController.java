@@ -44,8 +44,16 @@ public class UserController {
         if (!isLoggedIn) {
             return "redirect:/login";
         }
+        
+        // Hitung jumlah berdasarkan gender
+        long maleCount = userList.stream().filter(u -> "Laki-laki".equals(u.getJenisKelamin())).count();
+        long femaleCount = userList.stream().filter(u -> "Perempuan".equals(u.getJenisKelamin())).count();
+        
         model.addAttribute("title", "Tabel Deployment Praktikum 6");
         model.addAttribute("users", userList);
+        model.addAttribute("totalUsers", userList.size());
+        model.addAttribute("maleCount", maleCount);
+        model.addAttribute("femaleCount", femaleCount);
         return "home";
     }
     
